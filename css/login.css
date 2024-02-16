@@ -1,0 +1,99 @@
+
+
+body {
+  height: 100vh;
+  font-weight: 400;
+  font-family: "Poppins";
+}
+
+.columns-login-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.column {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  box-shadow: 2px 12px 43px -29px rgba(0,0,0,1);
+}
+
+.right {
+  background-color: linear-gradient(to right, #4D486A 0%, #5038ED 51%, #4D486A  100%);
+}
+
+.wrapper-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  gap: 20px
+}
+
+.title-login {
+  font-weight: bold;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.title-p {
+  font-size: 16px;
+  color: #525252;
+}
+
+.input-form {
+  width: 300px;
+  height: 52px;
+  padding-left: 3rem;
+  padding-top: 0.1rem;
+  font-size: 15px;
+  background-color:rgba(240, 237, 255, 0.8); 
+  border-radius: 16px;
+  border: none;
+}
+
+.input-form:focus {
+  outline: none;
+  transition: all 0.5s ease;
+  box-shadow: 2px 12px 45px -20px rgba(200, 60, 255, 0.377);
+}
+
+.icon-input i {
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 2px 0px 10px 2cqmin;
+  margin-top: 1rem;
+  font-size: 23px;
+  text-align: center;     
+}
+
+.button-login {
+  background-image: linear-gradient(to right, #8d5fa891 0%, #5038edb0 51%, #b087c791  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.button-login:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 6px 2px 29px -4px rgba(255,0,255,0.5);
+}
