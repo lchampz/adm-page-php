@@ -2,7 +2,8 @@
 
 <?php
 
-include("./classes/User.php");
+include("classes/User.php");
+
 $teste = new User();
 
 $teste->changeName("teste");
