@@ -1,6 +1,6 @@
 <?php
 
-include("Access.php");
+include("./Access.php");
 
 class User {
   public $id;
