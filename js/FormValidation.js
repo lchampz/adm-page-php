@@ -19,9 +19,44 @@ function logIn() {
 
     //resolver validação, criar a API de login
 
-    //sendData()
+     sendData().then((response) => {
+        console.log(response)
+        toastfy("s", err)
+     }).catch((err) => {
+        toastfy("e", "[ERRO] " + err)
+     })
+    
+    sendData()
     console.log("passou")
+    
 }
 
+
+function toastfy(type, msg) {
+    let toast = document.getElementById("toast")
+
+    toast.classList.remove("invisible");
+
+    switch(type) {
+        case "e":
+            toast.classList.add("error");
+        break;
+        case "a":
+            toast.classList.add("alert");
+        break;
+        case "s":
+            toast.classList.add("success");
+        break;
+    }
+    toast.innerText = msg;
+
+    setTimeout(() => {
+        toast.classList.remove("error");
+        toast.classList.remove("alert");
+        toast.classList.remove("success");
+
+        toast.classList.add("invisible");
+    }, 3500)
+}
 
 btn.addEventListener("click", logIn);
