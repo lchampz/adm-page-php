@@ -6,6 +6,11 @@ function logIn() {
     let pass = document.getElementById("pass-input").value;
     let user = document.getElementById("user-input").value;
 
+    if (!pass || !user) {
+        toastfy("e", "[ERRO] Input vazio!");
+        return;
+    }
+
     async function sendData() {
         const response = await fetch(_API_ + "login", {
             method: "POST",
