@@ -146,6 +146,51 @@ body {
   z-index: 999;
 }
 
+.toast {
+  display: flex;
+  
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  margin-left: 30px;
+
+  min-width: 150px;
+  padding: 10px;
+
+  /* width: 0%;
+  transform: translateX(-100%);
+  
+  opacity: 0; */
+  
+  height: 40px;
+  color: white;
+  font-weight: 500;
+  border-radius: 15px;
+
+  transition: all 0.5s ease-in;
+
+}
+
+
+.alert {
+  border: 3px solid rgb(255, 239, 21);
+  border-left: 10px solid rgb(255, 239, 21);
+  color: rgb(213, 224, 53)
+}
+
+.error {
+  border: 3px solid rgb(255, 112, 112);
+  border-left: 10px solid rgb(255, 112, 112);
+  color: rgb(192, 76, 76);
+}
+
+.success {
+  border: 3px solid rgb(145, 255, 112);
+  border-left: 10px solid rgb(145, 255, 112);
+  color: rgb(101, 201, 70);
+}
+
 @media (max-width: 1100px) {
   .columns-login-wrapper {
     overflow: hidden;
