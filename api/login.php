@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
@@ -13,5 +13,5 @@ use Models as m;
 
 $routes = new m\Router();
 $requestUri = $_SERVER['REQUEST_URI'];
-
+$routes->add('POST', '/login', "Models\User", ["name", "pass"], false);
 $routes->go($requestUri);

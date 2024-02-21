@@ -18,6 +18,6 @@ class User {
     //$token = JWT::encode(['name'=> $login,''=> $expire_in], $GLOBALS['secretJWT']);
     
     setcookie('token', "Teste", $expire_in);
-    print_r("teste");
+    print_r("Check yours cookies");
   }
 }
