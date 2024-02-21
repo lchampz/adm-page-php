@@ -1,5 +1,14 @@
 {
+  "require": {
+    "php": "^8"
+  },
   "autoload": {
       "psr-4": {"Models\\": "api/Models/"}
+  },
+  "scripts": {
+    "vercel": [
+      "@php --ini",
+      "@php -m"
+    ]
   }
 }
