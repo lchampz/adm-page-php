@@ -193,10 +193,6 @@ body {
   border: 3px solid rgb(145, 255, 112);
   border-left: 10px solid rgb(145, 255, 112);
   color: rgb(101, 201, 70);
-  width: 30%;
-  transform: translateX(100%);
-  
-  opacity: 1;
 }
 
 @media (max-width: 1100px) {

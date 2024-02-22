@@ -1,8 +1,8 @@
-const _API_ = window.location.href;
+const _API_ = window.location.href; //"http://localhost:4000/"
 
 let btn = document.getElementById("btn-login");
 
-function logIn() {
+async function logIn() {
     let pass = document.getElementById("pass-input").value;
     let user = document.getElementById("user-input").value;
 
@@ -12,7 +12,7 @@ function logIn() {
     }
 
     async function sendData() {
-        const response = await fetch(_API_ + "login", {
+        const response = await fetch(_API_ + "api/login", {
             method: "POST",
             body: JSON.stringify({
                 user: user,
@@ -24,16 +24,10 @@ function logIn() {
 
     //resolver validação, criar a API de login
 
-     sendData().then((response) => {
-        console.log(response)
-        toastfy("s", err)
-     }).catch((err) => {
-        toastfy("e", "[ERRO] " + err)
-     })
-    
-    sendData()
-    console.log("passou")
-    
+    const response = await sendData();
+    console.log(response);
+    toastfy(response.type, response.msg);
+    if (response.type === "s") window.localStorage.setItem("token", response.token);
 }
 
 
@@ -42,16 +36,16 @@ function toastfy(type, msg) {
 
     toast.classList.remove("invisible");
 
-    switch(type) {
+    switch (type) {
         case "e":
             toast.classList.add("error");
-        break;
+            break;
         case "a":
             toast.classList.add("alert");
-        break;
+            break;
         case "s":
             toast.classList.add("success");
-        break;
+            break;
     }
     toast.innerText = msg;
 
