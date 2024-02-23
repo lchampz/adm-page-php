@@ -33,7 +33,7 @@ class Router
     }
 
     if (!$indexRoute) {
-      echo '[ERRO] Rota não encontrada';
+      echo json_encode(array('error' => '[ERRO] Rota nao encontrada'));
       return;
     }
 

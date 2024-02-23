@@ -5,8 +5,6 @@ header('Content-type: application/json');
 
 date_default_timezone_set("America/Sao_Paulo");
 
-$GLOBALS['secretJWT'] = '';
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Models as m;
