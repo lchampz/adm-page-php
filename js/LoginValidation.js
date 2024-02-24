@@ -1,4 +1,4 @@
-const _API_ = window.location.href;
+const _API_ = "http://localhost:4000/" //window.location.href; 
 
 let btn = document.getElementById("btn-login");
 
@@ -36,15 +36,19 @@ async function logIn() {
     const response = await sendData();
     console.log(response);
     toastfy(response.type, response.msg);
-    if (response.type === "s") window.localStorage.setItem("token", response.token);
     if(response) {
         spin.style.display = "none";
         textBtn.style.display = "block";
         btn.disabled = false;
         btn.style.backgroundImage = "linear-gradient(to right, #8d5fa891 0%, #5038edb0 51%, #b087c791 100%)"
-        btn.style.cursor = "click"
-    btn.style.pointerEvents = 'auto'
+        btn.style.cursor = "pointer"
+        btn.style.pointerEvents = 'auto'
     }
+    if (response.type === "s") {
+        window.localStorage.setItem("token", response.token);
+        window.location.href += "pages/home.html";
+    }
+    
     
 }
 
