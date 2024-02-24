@@ -1,4 +1,4 @@
-const _API_ = "http://localhost:4000/"; //window.location.href
+const _API_ = process.env.URL;
 
 let btn = document.getElementById("btn-login");
 
