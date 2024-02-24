@@ -1,7 +1,7 @@
 {
   "require": {
     "php": "^8",
-    "firebase/php-jwt": "6.4"
+    "firebase/php-jwt": "^6.4"
   },
   "autoload": {
       "psr-4": {"Models\\": "api/Models/"}
