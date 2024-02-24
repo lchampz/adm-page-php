@@ -1,4 +1,4 @@
-const _API_ = process.env.URL;
+const _API_ = window.location.href;
 
 let btn = document.getElementById("btn-login");
 
