@@ -19,7 +19,7 @@ export class Encrypt {
     
     decrypt(value) {
         const frase = [];
-        const dicio = invertMap(map);
+        const dicio = this.invertMap(map);
         (value.split('')).forEach((letter) => {
             frase.push(dicio[letter]);
         })

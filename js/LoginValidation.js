@@ -1,5 +1,5 @@
 import { Encrypt } from "./Encrypt.js";
-const _API_ = window.location.href; 
+const _API_ = "http://localhost:4000/";//window.location.href; 
 
 
 const btn = document.getElementById("btn-login");
