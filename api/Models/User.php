@@ -1,9 +1,9 @@
 <?php
-declare(strict_types=1);
-namespace Models;
 
-use Firebase\JWT\JWT;
-use DateTime;
+declare(strict_types=1);
+
+namespace Models;
+use Models\Encrypt;
 
 class User
 {
@@ -14,7 +14,7 @@ class User
   public static function login(?array $data)
   {
 
-    if(empty($data)) {
+    if (empty($data)) {
       print_r(json_encode(array("error" => "[ERRO] Valores vazios!")));
       return;
     }
@@ -22,27 +22,16 @@ class User
     $user = new User();
     $response = new ResponseLogin($data);
 
+    $crypto = new Encrypt();
+
     $login = addslashes(htmlspecialchars($response->getUser()) ?? "");
     $pass = addslashes(htmlspecialchars($response->getPass()) ?? "");
 
-    $user->name = $login;
-    $user->password = $pass;
+    $user->name = $crypto->decrypt($login);
+    $user->password = $crypto->decrypt($pass);
 
-    $secretKey  = "bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew="; //pls NEVER put ur secret here, im just putting cuz its a college project
-    $issuedAt   = new DateTime(date_default_timezone_get());
-    $expire     = $issuedAt->modify('+60 seconds');                                                
-
-    $data = [
-        'iat'  => $issuedAt,                          
-        'nbf'  => $issuedAt,         
-        'exp'  => $expire,                          
-        'userName' => $user->name,                     
-    ];
-
-    $token = JWT::encode($data, $secretKey, 'HS512');
-
-    if ($login == "victor" && $pass == "teste") {
-      print_r(json_encode(array("msg" => "Usuário logado!", "type" => "s", "token" => $token)));
+    if ($crypto->decrypt($login) == "victor" && $crypto->decrypt($pass) == "teste") {
+      print_r(json_encode(array("msg" => "Usuário logado!", "type" => "s", "token" => $crypto->encrypt($user->name))));
     } else {
       print_r(json_encode(array("msg" => "Falha ao logar", "type" => "e")));
     }
@@ -73,5 +62,69 @@ class ResponseLogin
   public function getPass()
   {
     return $this->pass;
+  }
+}
+
+class Hash //pls NEVER put ur secret here, im just putting cuz its a college project
+{
+  public $map = array(
+    'a' => 'x',
+    'b' => 'V',
+    'c' => 'd',
+    'd' => 'O',
+    'e' => 'g',
+    'f' => 'I',
+    'g' => 'i',
+    'h' => 'A',
+    'i' => 'M',
+    'j' => 'D',
+    'k' => 'n',
+    'l' => 'c',
+    'm' => 'W',
+    'n' => 'P',
+    'o' => 'Y',
+    'p' => 'G',
+    'q' => 'Z',
+    'r' => 's',
+    's' => 'b',
+    't' => 'C',
+    'u' => 'S',
+    'v' => 'h',
+    'w' => '#',
+    'x' => 'q',
+    'y' => 'J',
+    'z' => 'F',
+    'A' => 't',
+    'B' => '!',
+    'C' => 'p',
+    'D' => 'l',
+    'E' => 'e',
+    'F' => 'R',
+    'G' => 'j',
+    'H' => 'm',
+    'I' => '&',
+    'J' => 'u',
+    'K' => 'w',
+    'L' => 'H',
+    'M' => 'a',
+    'N' => 'o',
+    'O' => '!',
+    'P' => 'T',
+    'Q' => '@',
+    'R' => 'Q',
+    'S' => 'r',
+    'T' => 'y',
+    'U' => 'f',
+    'V' => 'k',
+    'W' => 'N',
+    'X' => 'E',
+    'Y' => 'X',
+    'Z' => 'B',
+    ' ' => '%'
+  );
+
+  public function getMap()
+  {
+    return $this->map;
   }
 }

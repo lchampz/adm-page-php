@@ -1,12 +1,15 @@
-const _API_ = "http://localhost:4000/" //window.location.href; 
+import { Encrypt } from "./Encrypt.js";
+const _API_ = window.location.href; 
 
-let btn = document.getElementById("btn-login");
+
+const btn = document.getElementById("btn-login");
 
 async function logIn() {
-    let pass = document.getElementById("pass-input").value;
-    let user = document.getElementById("user-input").value;
-    let textBtn = document.getElementById("login-text-btn");
-    let spin = document.getElementById("loading-icon");
+    const pass = document.getElementById("pass-input").value;
+    const user = document.getElementById("user-input").value;
+    const textBtn = document.getElementById("login-text-btn");
+    const spin = document.getElementById("loading-icon");
+    const crypto = new Encrypt();
 
     if (!pass || !user) {
         toastfy("e", "[ERRO] Input vazio!");
@@ -24,8 +27,8 @@ async function logIn() {
         const response = await fetch(_API_ + "api/login", {
             method: "POST",
             body: JSON.stringify({
-                user: user,
-                pass: pass,
+                user: crypto.encrypt(user),
+                pass: crypto.encrypt(pass),
             })
         });
         return response.json();
@@ -46,7 +49,7 @@ async function logIn() {
     }
     if (response.type === "s") {
         window.localStorage.setItem("token", response.token);
-        window.location.href += "pages/home.html";
+        window.location.href = _API_ + '/pages/home.html';
     }
     
     
