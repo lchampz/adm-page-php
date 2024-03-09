@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Models;
 use Models\Encrypt;
+use Models\Connection;
 
 class User
 {
@@ -23,6 +24,8 @@ class User
     $response = new ResponseLogin($data);
 
     $crypto = new Encrypt();
+    $db = new Connection("", "pi", "localhost", "root");  
+    
 
     $login = addslashes(htmlspecialchars($response->getUser()) ?? "");
     $pass = addslashes(htmlspecialchars($response->getPass()) ?? "");
@@ -30,7 +33,9 @@ class User
     $user->name = $crypto->decrypt($login);
     $user->password = $crypto->decrypt($pass);
 
-    if ($crypto->decrypt($login) == "victor" && $crypto->decrypt($pass) == "teste") {
+    $response = $db->login($user->name, $user->password);
+
+    if($response) {
       print_r(json_encode(array("msg" => "Usuário logado!", "type" => "s", "token" => $crypto->encrypt($user->name))));
     } else {
       print_r(json_encode(array("msg" => "Falha ao logar", "type" => "e")));
