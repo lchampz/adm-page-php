@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - ToyStore</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Dashboard | ToyStore</title>
 </head>
 <body>
-    <h1>Bem vindo <span id="adm-name"></p></h1>
+    <div class="wrapper-dashboard">
+        <div class="collapse-menu">
+            <div class="greeting">Bem Vindo(a), <span id="adm-name"></p></div>
+            <span class="list-menu">
+                <p class="item-menu"><i class="fa fa-users" aria-hidden="true"></i> Usuários</span>
+                <p class="item-menu"><i class="fa fa-list" aria-hidden="true"></i>Categorias</span>
+                <p class="item-menu"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Produtos</span>
+            </span>
+        </div>
+        <div class="content">
+            <span class="header">
+                <p class="title">Resumo</p> 
+                <p class="actual-date" id="date"></p>
+            </span>
+            <span class="line"></span>
+            <span class="table-wrapper">
+                <div class="col lg">teste</div>
+                <div class="col">
+                    <div class="col break">
+                        t
+                    </div>
+                    <div class="col break">
+                        t
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
     <script type="module" src="../js/IsUserLogged.js"></script>
 </body>
 </html>

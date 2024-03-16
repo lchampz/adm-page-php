@@ -24,7 +24,7 @@ class User
     $response = new ResponseLogin($data);
 
     $crypto = new Encrypt();
-    $db = new Connection("", "pi", "localhost", "root");  
+    $db = new Connection("", "alpha", "localhost", "root");  
     
 
     $login = addslashes(htmlspecialchars($response->getUser()) ?? "");
@@ -67,69 +67,5 @@ class ResponseLogin
   public function getPass()
   {
     return $this->pass;
-  }
-}
-
-class Hash //pls NEVER put ur secret here, im just putting cuz its a college project
-{
-  public $map = array(
-    'a' => 'x',
-    'b' => 'V',
-    'c' => 'd',
-    'd' => 'O',
-    'e' => 'g',
-    'f' => 'I',
-    'g' => 'i',
-    'h' => 'A',
-    'i' => 'M',
-    'j' => 'D',
-    'k' => 'n',
-    'l' => 'c',
-    'm' => 'W',
-    'n' => 'P',
-    'o' => 'Y',
-    'p' => 'G',
-    'q' => 'Z',
-    'r' => 's',
-    's' => 'b',
-    't' => 'C',
-    'u' => 'S',
-    'v' => 'h',
-    'w' => '#',
-    'x' => 'q',
-    'y' => 'J',
-    'z' => 'F',
-    'A' => 't',
-    'B' => '!',
-    'C' => 'p',
-    'D' => 'l',
-    'E' => 'e',
-    'F' => 'R',
-    'G' => 'j',
-    'H' => 'm',
-    'I' => '&',
-    'J' => 'u',
-    'K' => 'w',
-    'L' => 'H',
-    'M' => 'a',
-    'N' => 'o',
-    'O' => '!',
-    'P' => 'T',
-    'Q' => '@',
-    'R' => 'Q',
-    'S' => 'r',
-    'T' => 'y',
-    'U' => 'f',
-    'V' => 'k',
-    'W' => 'N',
-    'X' => 'E',
-    'Y' => 'X',
-    'Z' => 'B',
-    ' ' => '%'
-  );
-
-  public function getMap()
-  {
-    return $this->map;
   }
 }

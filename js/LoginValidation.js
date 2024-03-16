@@ -1,5 +1,5 @@
 import { Encrypt } from "./Encrypt.js";
-const _API_ = window.location.href; ;//"http://localhost:4000/"
+const _API_ = "http://localhost:4000/"; ;//window.location.href
 
 
 const btn = document.getElementById("btn-login");
@@ -49,7 +49,7 @@ async function logIn() {
     }
     if (response.type === "s") {
         window.localStorage.setItem("token", response.token);
-        window.location.href = _API_+'pages/home.html';
+        window.location.href = "http://127.0.0.1:5500/pages/home.html" //_API_+'pages/home.html';
     }
     
     

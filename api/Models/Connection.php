@@ -39,7 +39,7 @@ class Connection {
     }
 
     public function login($user, $pass) {
-        $sql = "Select * from Administrador where email = :user and senha = :pass and ativo = 1";
+        $sql = "Select * from Administrador where ADM_NOME = :user and ADM_SENHA = :pass and ADM_ATIVO = 1";
 
         $conn = $this->init();
         $query = $conn->prepare($sql);

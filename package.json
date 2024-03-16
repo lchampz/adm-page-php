@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "jwt-decode": "^4.0.0"
-  },
   "type": "module",
   "scripts": {
     "api": "php -S localhost:4000 api/index.php"
