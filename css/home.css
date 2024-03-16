@@ -54,6 +54,40 @@
     width: 200px;
     transition: all 0.1s ease;
 }
+
+#exit {
+    position: absolute;
+    position: fixed;
+    bottom: 50px;
+    right: 20px; 
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#exit:hover {
+    color: red;
+}
+
+.exit-info {
+    position: absolute;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    position: fixed;
+    bottom: 75px;
+    right: 45px; 
+    opacity: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    color: white;
+    cursor: default;
+    font-size: 12px;
+    background-color: black;
+    transition: all 0.2s ease-in-out;
+    
+}
+
 .collapse-menu .item-menu:hover {
     color: red;
     cursor: pointer;

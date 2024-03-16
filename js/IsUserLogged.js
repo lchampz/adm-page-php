@@ -10,15 +10,6 @@ export function isUserLogged() {
   else return null;
 }
 
-function getAdmName() {
-  const token = isUserLogged();
-  const username = document.getElementById('adm-name');
-  
-  if(token) username.innerHTML = token;
-  else window.location.href = 'http://127.0.0.1:5500'; //"adm-page-php.vercel.app"
-}
-
-
 addEventListener("load", () => {
   const username = document.getElementById('adm-name');
   const actualDateDiv = document.getElementById('date');

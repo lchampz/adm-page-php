@@ -56,8 +56,8 @@ async function logIn() {
 }
 
 
-function toastfy(type, msg) {
-    let toast = document.getElementById("toast")
+export function toastfy(type, msg, toastComponent = null) {
+    let toast = toastComponent ?? document.getElementById("toast")
 
     toast.classList.remove("invisible");
 
